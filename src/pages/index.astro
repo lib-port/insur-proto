@@ -8,9 +8,9 @@ import home from '../assets/images/home-exterior-canadian-flag.png';
 import livingRoom from '../assets/images/living-room.jpg';
 
 const coverages = [
-  { icon: 'home' as const, number: '01', title: 'The place you call yours.', label: 'YOUR HOME', description: 'From the roof above you to the walls around you. Thoughtful protection for the structure of your home.', examples: ['The building and its fixtures', 'Damage from unexpected events', 'The cost of putting things right'] },
-  { icon: 'belongings' as const, number: '02', title: 'The things that make it home.', label: 'YOUR BELONGINGS', description: 'The everyday essentials. The carefully chosen pieces. Cover for the belongings that are part of your life.', examples: ['Furniture and home essentials', 'Clothing and personal belongings', 'Options for your valuable items'] },
-  { icon: 'umbrella' as const, number: '03', title: 'Room for the unexpected.', label: 'LIFE’S INTERRUPTIONS', description: 'When a covered event turns life upside down, a little breathing room can make all the difference.', examples: ['A temporary place to stay', 'Support through the next steps', 'Help getting back to everyday life'] },
+  { icon: 'home' as const, number: '01', title: 'Your home', tagline: 'The place you call yours.', description: 'From the roof above you to the walls around you. Thoughtful protection for the structure of your home.', examples: ['The building and its fixtures', 'Damage from unexpected events', 'The cost of putting things right'] },
+  { icon: 'belongings' as const, number: '02', title: 'Your belongings', tagline: 'The things that make it home.', description: 'The everyday essentials. The carefully chosen pieces. Cover for the belongings that are part of your life.', examples: ['Furniture and home essentials', 'Clothing and personal belongings', 'Options for your valuable items'] },
+  { icon: 'umbrella' as const, number: '03', title: 'Temporary accommodation', tagline: 'Room for the unexpected.', description: 'When a covered event turns life upside down, a little breathing room can make all the difference.', examples: ['A temporary place to stay', 'Support through the next steps', 'Help getting back to everyday life'] },
 ];
 const faqs = [
   { question: 'What is the difference between buildings and belongings cover?', answer: 'Buildings cover relates to the structure of your home and its permanent fixtures. Belongings cover relates to the things you keep inside, such as furniture, clothing, and electronics. The Hearthline concept brings both into one easy-to-understand overview.' },
@@ -82,8 +82,8 @@ const faqs = [
           {coverages.map((coverage) => (
             <article class="coverage-card">
               <div class="coverage-top"><span class="coverage-icon"><Icon name={coverage.icon} size={32} /></span><span class="coverage-number">{coverage.number}</span></div>
-              <p class="eyebrow">{coverage.label}</p>
               <h3>{coverage.title}</h3>
+              <p class="coverage-tagline">{coverage.tagline}</p>
               <p class="coverage-description">{coverage.description}</p>
               <ul>{coverage.examples.map((example) => <li><Icon name="check" size={17} /><span>{example}</span></li>)}</ul>
             </article>
@@ -156,6 +156,10 @@ const faqs = [
     };
     toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
     navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('pointerdown', (event) => {
+      if (!header.hasAttribute('data-menu-open') || !(event.target instanceof Node)) return;
+      if (!navigation.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
+    });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && header.hasAttribute('data-menu-open')) {
         setMenu(false);

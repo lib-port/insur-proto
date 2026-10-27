@@ -2,7 +2,7 @@
 interface Props { inverse?: boolean; }
 const { inverse = false } = Astro.props;
 ---
-<a href="/" class:list={['brand', { 'brand--inverse': inverse }]} aria-label="Hearthline Insurance home">
+<a href={import.meta.env.BASE_URL} class:list={['brand', { 'brand--inverse': inverse }]} aria-label="Hearthline Insurance home">
   <svg width="41" height="43" viewBox="0 0 41 43" fill="none" aria-hidden="true">
     <path d="M5 19 20.5 5 36 19v20H5V19Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />
     <path d="M16 39V25h9v14M12 12V5" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />

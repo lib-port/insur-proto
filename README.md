@@ -12,7 +12,7 @@ pnpm exec astro dev logs
 pnpm exec astro dev stop
 ```
 
-Open the local URL reported by Astro (normally http://localhost:4321). The landing page is at `/`; the case study is at `/docs/`.
+Open the local URL reported by Astro (normally http://localhost:4321/insur-proto/). The landing page is at `/insur-proto/`; the case study is at `/insur-proto/docs/`.
 
 ## Build
 
@@ -22,6 +22,14 @@ pnpm preview --host 127.0.0.1
 ```
 
 The static site is generated in `dist/`. Starlight generates a Pagefind search index during the production build. Use the production preview to verify search; it is not available in development mode.
+
+## GitHub Pages
+
+The site is published at https://lib-port.github.io/insur-proto/.
+
+The `Deploy Astro to GitHub Pages` workflow builds and deploys the site on every push to `main`. It can also be run manually from the repository’s Actions tab. GitHub Pages uses GitHub Actions as its source.
+
+The workflow uses Node.js 24 and the pnpm version declared in `package.json`. Astro’s `site` and `base` settings match the project URL; internal links and public assets use that base path.
 
 ## Edit the experience
 

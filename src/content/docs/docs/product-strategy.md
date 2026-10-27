@@ -43,4 +43,4 @@ No detailed market-size estimate, pricing model, or acquisition forecast is incl
 
 If visitors understand the categories but hesitate to continue, investigate the information they are missing before adding more promotional copy. If the categories themselves are confusing, revise the language and structure before expanding the journey.
 
-[Next: Design decisions →](/docs/design-decisions/)
+[Next: Design decisions →](../design-decisions/)

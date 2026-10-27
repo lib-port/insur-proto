@@ -4,7 +4,7 @@ import MarketingLayout from '../layouts/MarketingLayout.astro';
 import Brand from '../components/Brand.astro';
 import Icon from '../components/Icon.astro';
 import QuoteDialog from '../components/QuoteDialog.astro';
-import home from '../assets/images/home-exterior.jpg';
+import home from '../assets/images/home-exterior-canadian-flag.png';
 import livingRoom from '../assets/images/living-room.jpg';
 
 const coverages = [
@@ -28,7 +28,7 @@ const faqs = [
         <a href="#coverage">Our cover</a>
         <a href="#why-hearthline">Why Hearthline</a>
         <a href="#questions">FAQs</a>
-        <a href="/docs/" class="documentation-link">Documentation <Icon name="arrow" size={15} /></a>
+        <a href={`${import.meta.env.BASE_URL}docs/`} class="documentation-link">Documentation <Icon name="arrow" size={15} /></a>
       </nav>
       <div class="header-actions">
         <button class="button button--primary header-quote" data-quote>Get a quote <Icon name="arrow" size={17} /></button>
@@ -55,7 +55,7 @@ const faqs = [
         </div>
         <div class="hero-visual">
           <div class="hero-image-frame">
-            <Image src={home} alt="A welcoming detached home with a green lawn and glowing windows at sunset." widths={[640, 960, 1440]} sizes="(max-width: 800px) 100vw, 52vw" loading="eager" fetchpriority="high" format="webp" quality={85} class="hero-image" />
+            <Image src={home} alt="A welcoming detached home with a small Canadian flag in the front garden and glowing windows at sunset." widths={[640, 960, 1440]} sizes="(max-width: 800px) 100vw, 52vw" loading="eager" fetchpriority="high" format="webp" quality={85} class="hero-image" />
             <span class="image-corner" aria-hidden="true"></span>
           </div>
           <div class="home-note"><span class="home-note-icon"><Icon name="home" size={29} /></span><div><span class="home-note-title">A little more peace of mind.</span><span class="home-note-caption">For everything that makes it yours.</span></div></div>
@@ -121,7 +121,7 @@ const faqs = [
 
     <section class="faq-section section-space" id="questions" aria-labelledby="faq-title">
       <div class="container faq-grid">
-        <div class="faq-intro"><p class="eyebrow">A LITTLE MORE CLARITY</p><h2 id="faq-title">Good questions.<br />Clear answers.</h2><p>Getting to know your cover<br class="desktop-break" /> starts with understanding it.</p><a href="/docs/" class="text-link">Behind the experience <Icon name="arrow" size={18} /></a></div>
+        <div class="faq-intro"><p class="eyebrow">A LITTLE MORE CLARITY</p><h2 id="faq-title">Good questions.<br />Clear answers.</h2><p>Getting to know your cover<br class="desktop-break" /> starts with understanding it.</p><a href={`${import.meta.env.BASE_URL}docs/`} class="text-link">Behind the experience <Icon name="arrow" size={18} /></a></div>
         <div class="faq-list">{faqs.map((faq) => <details><summary><span>{faq.question}</span><Icon name="plus" size={20} class="faq-plus" /></summary><p>{faq.answer}</p></details>)}</div>
       </div>
     </section>
@@ -133,8 +133,8 @@ const faqs = [
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-top"><div><Brand /><p>For the life you’ve built.</p></div><nav aria-label="Footer navigation"><a href="#coverage">Our cover</a><a href="#why-hearthline">Why Hearthline</a><a href="#questions">FAQs</a><a href="/docs/">Documentation <Icon name="arrow" size={15} /></a></nav></div>
-      <div class="footer-bottom"><p>© {new Date().getFullYear()} Hearthline. A fictional insurance concept.</p><a href="/docs/">Explore the product case study <Icon name="arrow" size={15} /></a></div>
+      <div class="footer-top"><div><Brand /><p>For the life you’ve built.</p></div><nav aria-label="Footer navigation"><a href="#coverage">Our cover</a><a href="#why-hearthline">Why Hearthline</a><a href="#questions">FAQs</a><a href={`${import.meta.env.BASE_URL}docs/`}>Documentation <Icon name="arrow" size={15} /></a></nav></div>
+      <div class="footer-bottom"><p>© {new Date().getFullYear()} Hearthline. A fictional insurance concept.</p><a href={`${import.meta.env.BASE_URL}docs/`}>Explore the product case study <Icon name="arrow" size={15} /></a></div>
       <p class="prototype-note">Created as a product management portfolio project. Cover is illustrative; this prototype does not provide insurance or quotes.</p>
     </div>
   </footer>

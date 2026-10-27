@@ -9,7 +9,7 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 > **Portfolio draft:** The audience, needs, and expected benefits below are working hypotheses. No customer research, conversion experiment, or insurance product launch has been completed. This documentation is an editable starting point for the project owner.
 
-[Explore the landing page →](/)
+<a href={import.meta.env.BASE_URL}>Explore the landing page →</a>
 
 ## The brief
 
@@ -44,10 +44,10 @@ The prototype does not collect personal details, calculate premiums, issue polic
 ## Follow the thinking
 
 <CardGrid>
-  <LinkCard title="Problem and audience" description="The needs we are assuming, the people we would research, and the questions still open." href="/docs/problem-and-audience/" />
-  <LinkCard title="Product strategy" description="The value proposition, priorities, and boundaries of the first version." href="/docs/product-strategy/" />
-  <LinkCard title="Design decisions" description="How the page structure, language, visual identity, and interactions support the goal." href="/docs/design-decisions/" />
-  <LinkCard title="Measurement and roadmap" description="What to validate next and which evidence would change the direction." href="/docs/measurement-and-roadmap/" />
+  <LinkCard title="Problem and audience" description="The needs we are assuming, the people we would research, and the questions still open." href={`${import.meta.env.BASE_URL}docs/problem-and-audience/`} />
+  <LinkCard title="Product strategy" description="The value proposition, priorities, and boundaries of the first version." href={`${import.meta.env.BASE_URL}docs/product-strategy/`} />
+  <LinkCard title="Design decisions" description="How the page structure, language, visual identity, and interactions support the goal." href={`${import.meta.env.BASE_URL}docs/design-decisions/`} />
+  <LinkCard title="Measurement and roadmap" description="What to validate next and which evidence would change the direction." href={`${import.meta.env.BASE_URL}docs/measurement-and-roadmap/`} />
 </CardGrid>
 
 ## Make this case study your own

@@ -11,7 +11,7 @@ import Icon from './Icon.astro';
     <h2 id="quote-title">Every great home story<br />starts somewhere.</h2>
     <p id="quote-description">Hearthline is a fictional insurance concept created as a product management portfolio project. This preview stops before a quote journey and does not issue insurance or collect personal information.</p>
     <p>You can explore the thinking behind the experience, from homeowner needs to design decisions and proposed success measures.</p>
-    <a href="/docs/" class="button button--primary">Explore the case study <Icon name="arrow" size={19} /></a>
+    <a href={`${import.meta.env.BASE_URL}docs/`} class="button button--primary">Explore the case study <Icon name="arrow" size={19} /></a>
     <form method="dialog"><button class="dialog-back">Back to Hearthline</button></form>
   </div>
 </dialog>

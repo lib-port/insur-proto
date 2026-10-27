@@ -53,4 +53,4 @@ Avoid asking only whether people like the design. Record whether they understand
 - Does the established visual identity help people understand the proposition without implying a real insurer?
 - Which market should define the terminology, eligibility, and eventual policy detail?
 
-[Next: Product strategy →](/docs/product-strategy/)
+[Next: Product strategy →](../product-strategy/)

@@ -4,6 +4,9 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://lib-port.github.io',
+	base: '/insur-proto',
+	trailingSlash: 'always',
 	integrations: [
 		starlight({
 			title: 'Hearthline · Documentation',

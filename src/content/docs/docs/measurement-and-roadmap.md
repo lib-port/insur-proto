@@ -56,4 +56,4 @@ If a measured test is justified, distinguish quote-button location, FAQ engageme
 
 For each research round, add the date, method, participant profile, observation, decision, and remaining uncertainty. Link important decisions back to the evidence. A change in direction is useful product evidence when its reasoning is clear.
 
-[Return to the case study overview →](/docs/)
+[Return to the case study overview →](../)

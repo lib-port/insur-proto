@@ -57,4 +57,4 @@ Marketing styles are loaded by the marketing layout. Documentation uses a small,
 - DM Sans is locally hosted under the SIL Open Font License; the licence is included in `public/fonts/OFL.txt`.
 - The Hearthline wordmark, house mark, and interface icons are SVG elements defined in the project.
 
-[Next: Measurement and roadmap →](/docs/measurement-and-roadmap/)
+[Next: Measurement and roadmap →](../measurement-and-roadmap/)

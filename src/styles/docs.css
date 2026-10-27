@@ -1,0 +1,16 @@
+:root {
+  --sl-color-accent-low: #153e42;
+  --sl-color-accent: #96c5b7;
+  --sl-color-accent-high: #d0e7df;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #eaf1ec;
+  --sl-color-accent: #2f675d;
+  --sl-color-accent-high: #132f42;
+}
+.site-title { letter-spacing: -.6px; }
+.sl-markdown-content h1, .sl-markdown-content h2, .sl-markdown-content h3, h1#_top {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -.025em;
+}

@@ -1,0 +1,54 @@
+---
+import Icon from './Icon.astro';
+---
+<dialog id="quote-dialog" aria-labelledby="quote-title" aria-describedby="quote-description">
+  <div class="quote-dialog-content">
+    <form method="dialog" class="dialog-close-form">
+      <button class="icon-button" aria-label="Close quote preview" autofocus><Icon name="close" /></button>
+    </form>
+    <span class="dialog-symbol"><Icon name="home" size={35} /></span>
+    <p class="eyebrow">A LOOK AT WHAT COULD BE</p>
+    <h2 id="quote-title">Every great home story<br />starts somewhere.</h2>
+    <p id="quote-description">Hearthline is a fictional insurance concept created as a product management portfolio project. This preview stops before a quote journey and does not issue insurance or collect personal information.</p>
+    <p>You can explore the thinking behind the experience, from homeowner needs to design decisions and proposed success measures.</p>
+    <a href="/docs/" class="button button--primary">Explore the case study <Icon name="arrow" size={19} /></a>
+    <form method="dialog"><button class="dialog-back">Back to Hearthline</button></form>
+  </div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#quote-dialog');
+  if (dialog) {
+    let opener: HTMLElement | null = null;
+    let previousOverflow = '';
+    document.querySelectorAll<HTMLButtonElement>('[data-quote]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (dialog.open) return;
+        opener = button;
+        previousOverflow = document.documentElement.style.overflow;
+        document.documentElement.style.overflow = 'hidden';
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('close', () => {
+      document.documentElement.style.overflow = previousOverflow;
+      opener?.focus({ preventScroll: true });
+    });
+    dialog.addEventListener('click', (event) => {
+      const bounds = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+    });
+  }
+</script>
+<style>
+  dialog { border: 0; padding: 0; border-radius: 8px; color: var(--navy); background: white; width: min(580px, calc(100% - 32px)); max-height: calc(100dvh - 40px); box-shadow: 0 24px 100px #102b4440; }
+  dialog::backdrop { background: #102333b8; backdrop-filter: blur(4px); }
+  .quote-dialog-content { padding: 52px 42px 32px; text-align: center; }
+  .dialog-close-form { position: absolute; top: 14px; right: 14px; }
+  .icon-button { display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%; color: var(--navy); background: var(--mist); cursor: pointer; }
+  .dialog-symbol { display: inline-grid; place-items: center; background: var(--sage); color: var(--teal); width: 72px; height: 72px; border-radius: 50%; margin-bottom: 28px; }
+  h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(29px, 5vw, 39px); line-height: 1.2; letter-spacing: -1.2px; margin: 17px 0 20px; }
+  p:not(.eyebrow) { font-size: 15px; color: var(--muted); line-height: 1.8; margin: 0 0 16px; }
+  .button { margin-top: 12px; width: 100%; justify-content: center; }
+  .dialog-back { background: none; color: var(--navy); padding: 15px; font-size: 13px; border: 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+  @media (max-width: 480px) { .quote-dialog-content { padding: 55px 24px 24px; } }
+</style>

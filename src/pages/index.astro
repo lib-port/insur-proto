@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import Brand from '../components/Brand.astro';
+import Icon from '../components/Icon.astro';
+import QuoteDialog from '../components/QuoteDialog.astro';
+import home from '../assets/images/home-exterior.jpg';
+import livingRoom from '../assets/images/living-room.jpg';
+
+const coverages = [
+  { icon: 'home' as const, number: '01', title: 'The place you call yours.', label: 'YOUR HOME', description: 'From the roof above you to the walls around you. Thoughtful protection for the structure of your home.', examples: ['The building and its fixtures', 'Damage from unexpected events', 'The cost of putting things right'] },
+  { icon: 'belongings' as const, number: '02', title: 'The things that make it home.', label: 'YOUR BELONGINGS', description: 'The everyday essentials. The carefully chosen pieces. Cover for the belongings that are part of your life.', examples: ['Furniture and home essentials', 'Clothing and personal belongings', 'Options for your valuable items'] },
+  { icon: 'umbrella' as const, number: '03', title: 'Room for the unexpected.', label: 'LIFE’S INTERRUPTIONS', description: 'When a covered event turns life upside down, a little breathing room can make all the difference.', examples: ['A temporary place to stay', 'Support through the next steps', 'Help getting back to everyday life'] },
+];
+const faqs = [
+  { question: 'What is the difference between buildings and belongings cover?', answer: 'Buildings cover relates to the structure of your home and its permanent fixtures. Belongings cover relates to the things you keep inside, such as furniture, clothing, and electronics. The Hearthline concept brings both into one easy-to-understand overview.' },
+  { question: 'Can cover be tailored to my home?', answer: 'The concept is designed around choosing protection that reflects your home and belongings. In a full product, available options, limits, and exclusions would be explained before you chose a policy.' },
+  { question: 'What happens if I need to make a claim?', answer: 'The intended experience is a clear, guided route: explain what happened, understand the next steps, and receive updates along the way. Claims handling is part of the proposed product vision and is not available in this preview.' },
+  { question: 'Is Hearthline a real insurance company?', answer: 'Hearthline is a fictional brand created for a product management portfolio. Cover descriptions are illustrative, and this site does not provide insurance or generate quotes. Visit the documentation to explore the product strategy and design decisions.' },
+];
+---
+
+<MarketingLayout title="Hearthline — Home insurance, thoughtfully considered." description="An insurance concept for the place you call home. Explore thoughtful protection for your home, your belongings, and the life you’ve built.">
+  <header class="site-header">
+    <div class="container header-inner">
+      <Brand />
+      <nav id="main-navigation" class="site-nav" aria-label="Main navigation">
+        <a href="#coverage">Our cover</a>
+        <a href="#why-hearthline">Why Hearthline</a>
+        <a href="#questions">FAQs</a>
+        <a href="/docs/" class="documentation-link">Documentation <Icon name="arrow" size={15} /></a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button--primary header-quote" data-quote>Get a quote <Icon name="arrow" size={17} /></button>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation" hidden>
+          <span class="menu-open-icon"><Icon name="menu" /></span>
+          <span class="menu-close-icon"><Icon name="close" /></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> HOME INSURANCE, THOUGHTFULLY CONSIDERED</p>
+          <h1 id="hero-title">For the place<br />you call <em>home.</em></h1>
+          <p class="hero-description">It’s more than an address. It’s the life you’ve built.<br class="desktop-break" /> Let’s help you look after it.</p>
+          <div class="hero-actions">
+            <button class="button button--primary" data-quote>Get a quote <Icon name="arrow" size={19} /></button>
+            <a href="#coverage" class="text-link">Explore our cover <Icon name="arrow" size={18} /></a>
+          </div>
+          <div class="hero-reassurance"><Icon name="shield" size={19} /><span>Your home. Your belongings. Your peace of mind.</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <Image src={home} alt="A welcoming detached home with a green lawn and glowing windows at sunset." widths={[640, 960, 1440]} sizes="(max-width: 800px) 100vw, 52vw" loading="eager" fetchpriority="high" format="webp" quality={85} class="hero-image" />
+            <span class="image-corner" aria-hidden="true"></span>
+          </div>
+          <div class="home-note"><span class="home-note-icon"><Icon name="home" size={29} /></span><div><span class="home-note-title">A little more peace of mind.</span><span class="home-note-caption">For everything that makes it yours.</span></div></div>
+          <span class="hero-caption">HERE’S TO FEELING AT HOME.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles" aria-label="The Hearthline approach">
+      <div class="container principles-grid">
+        <div class="principle"><Icon name="document" size={27} /><div><h2>Clarity comes first.</h2><p>Cover explained in everyday language.</p></div></div>
+        <div class="principle"><Icon name="home" size={28} /><div><h2>Built around your home.</h2><p>Protection for the way you live.</p></div></div>
+        <div class="principle"><Icon name="message" size={28} /><div><h2>A more human approach.</h2><p>Because peace of mind is personal.</p></div></div>
+      </div>
+    </section>
+
+    <section class="coverage section-space" id="coverage" aria-labelledby="coverage-title">
+      <div class="container">
+        <div class="section-heading coverage-heading">
+          <div><p class="eyebrow">THE COVER, MADE CLEAR</p><h2 id="coverage-title">A home is full of things<br />worth looking after.</h2></div>
+          <p>From the big things to the little details,<br class="desktop-break" /> get to know what protection could look like.</p>
+        </div>
+        <div class="coverage-grid">
+          {coverages.map((coverage) => (
+            <article class="coverage-card">
+              <div class="coverage-top"><span class="coverage-icon"><Icon name={coverage.icon} size={32} /></span><span class="coverage-number">{coverage.number}</span></div>
+              <p class="eyebrow">{coverage.label}</p>
+              <h3>{coverage.title}</h3>
+              <p class="coverage-description">{coverage.description}</p>
+              <ul>{coverage.examples.map((example) => <li><Icon name="check" size={17} /><span>{example}</span></li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <p class="coverage-footnote"><Icon name="document" size={15} /> Illustrative cover only. A full policy would explain the terms, limits, and exclusions.</p>
+      </div>
+    </section>
+
+    <section class="why-section" id="why-hearthline" aria-labelledby="why-title">
+      <div class="container why-grid">
+        <div class="why-image-frame"><Image src={livingRoom} alt="A bright living room with a comfortable sofa, a coffee table, and natural light." widths={[480, 800, 1100]} sizes="(max-width: 800px) 100vw, 45vw" loading="lazy" format="webp" class="why-image" /></div>
+        <div class="why-copy">
+          <p class="eyebrow">A DIFFERENT KIND OF ASSURANCE</p>
+          <h2 id="why-title">Life happens.<br />Home should still<br />feel like home.</h2>
+          <p>Insurance is about more than the things you own. It’s about feeling ready for whatever comes next.</p>
+          <p>That’s the idea behind Hearthline: considered protection, clear choices, and people at the heart of it all.</p>
+          <a href="#how-it-works" class="text-link">A simpler way forward <Icon name="arrow" size={19} /></a>
+          <div class="why-signoff"><span class="signoff-line"></span><span>Thoughtfully considered. Personally important.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section section-space" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="center-heading"><p class="eyebrow">FROM YOUR FIRST QUESTION TO YOUR NEXT CHAPTER</p><h2 id="how-title">A clearer path to feeling covered.</h2><p>A thoughtful experience, with you at the centre.</p></div>
+        <ol class="steps-grid">
+          <li><span class="step-number">01</span><h3>Start with your home.</h3><p>A few details about your space and the belongings that matter to you.</p></li>
+          <li><span class="step-number">02</span><h3>Understand your options.</h3><p>Explore the cover, see what’s included, and make an informed choice.</p></li>
+          <li><span class="step-number">03</span><h3>Look ahead with confidence.</h3><p>Keep your cover close and know where to turn when life takes a different turn.</p></li>
+        </ol>
+        <p class="process-note">Our vision for the full experience. This preview introduces the product.</p>
+      </div>
+    </section>
+
+    <section class="faq-section section-space" id="questions" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-intro"><p class="eyebrow">A LITTLE MORE CLARITY</p><h2 id="faq-title">Good questions.<br />Clear answers.</h2><p>Getting to know your cover<br class="desktop-break" /> starts with understanding it.</p><a href="/docs/" class="text-link">Behind the experience <Icon name="arrow" size={18} /></a></div>
+        <div class="faq-list">{faqs.map((faq) => <details><summary><span>{faq.question}</span><Icon name="plus" size={20} class="faq-plus" /></summary><p>{faq.answer}</p></details>)}</div>
+      </div>
+    </section>
+
+    <section class="closing-section" aria-labelledby="closing-title">
+      <div class="container closing-inner"><div><p class="eyebrow">HERE’S TO WHAT’S NEXT</p><h2 id="closing-title">Make yourself at home.<br />We’ll think about the what-ifs.</h2></div><div class="closing-actions"><button class="button button--light" data-quote>Get a quote <Icon name="arrow" size={19} /></button><a href="#coverage">Take another look at our cover <Icon name="arrow" size={16} /></a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top"><div><Brand /><p>For the life you’ve built.</p></div><nav aria-label="Footer navigation"><a href="#coverage">Our cover</a><a href="#why-hearthline">Why Hearthline</a><a href="#questions">FAQs</a><a href="/docs/">Documentation <Icon name="arrow" size={15} /></a></nav></div>
+      <div class="footer-bottom"><p>© {new Date().getFullYear()} Hearthline. A fictional insurance concept.</p><a href="/docs/">Explore the product case study <Icon name="arrow" size={15} /></a></div>
+      <p class="prototype-note">Created as a product management portfolio project. Cover is illustrative; this prototype does not provide insurance or quotes.</p>
+    </div>
+  </footer>
+  <QuoteDialog />
+</MarketingLayout>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const navigation = document.querySelector<HTMLElement>('#main-navigation');
+  if (header && toggle && navigation) {
+    header.dataset.enhanced = '';
+    toggle.hidden = false;
+    const setMenu = (open: boolean) => {
+      header.toggleAttribute('data-menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      navigation.inert = !open && window.matchMedia('(max-width: 800px)').matches;
+    };
+    toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && header.hasAttribute('data-menu-open')) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    window.matchMedia('(max-width: 800px)').addEventListener('change', () => setMenu(false));
+    setMenu(false);
+  }
+</script>

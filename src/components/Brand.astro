@@ -1,0 +1,18 @@
+---
+interface Props { inverse?: boolean; }
+const { inverse = false } = Astro.props;
+---
+<a href="/" class:list={['brand', { 'brand--inverse': inverse }]} aria-label="Hearthline Insurance home">
+  <svg width="41" height="43" viewBox="0 0 41 43" fill="none" aria-hidden="true">
+    <path d="M5 19 20.5 5 36 19v20H5V19Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />
+    <path d="M16 39V25h9v14M12 12V5" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />
+    <path d="M10 33h6m9 0h6" stroke="currentColor" stroke-width="2.2" />
+  </svg>
+  <span class="brand-type">hearthline<span class="brand-descriptor">HOME INSURANCE</span></span>
+</a>
+<style>
+  .brand { display: inline-flex; align-items: center; gap: 11px; color: #132f42; text-decoration: none; flex-shrink: 0; }
+  .brand--inverse { color: white; }
+  .brand-type { font-family: Georgia, 'Times New Roman', serif; font-size: 31px; letter-spacing: -1.5px; line-height: 1; }
+  .brand-descriptor { display: block; font-family: 'DM Sans', sans-serif; font-size: 8px; font-weight: 600; letter-spacing: 2.6px; margin-top: 7px; margin-left: 2px; }
+</style>

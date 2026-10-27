@@ -6,19 +6,21 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Hearthline · Documentation',
+			description: 'The product thinking behind a thoughtful home insurance experience.',
+			favicon: '/favicon.svg',
+			customCss: ['./src/styles/docs.css'],
 			sidebar: [
+				{ label: 'Back to Hearthline', link: '/' },
 				{
-					label: 'Guides',
+					label: 'Product case study',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Overview', slug: 'docs' },
+						{ label: 'Problem and audience', slug: 'docs/problem-and-audience' },
+						{ label: 'Product strategy', slug: 'docs/product-strategy' },
+						{ label: 'Design decisions', slug: 'docs/design-decisions' },
+						{ label: 'Measurement and roadmap', slug: 'docs/measurement-and-roadmap' },
 					],
-				},
-				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
 				},
 			],
 		}),

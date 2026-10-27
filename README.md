@@ -1,49 +1,54 @@
-# Starlight Starter Kit: Basics
+# Hearthline Insurance
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+A fictional homeowners insurance landing page and an editable product management case study, built with Astro and Starlight.
 
-```
-pnpm create astro@latest -- --template starlight
-```
+## Run locally
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```sh
+pnpm install
+pnpm exec astro dev --background
+pnpm exec astro dev status
+pnpm exec astro dev logs
+pnpm exec astro dev stop
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Open the local URL reported by Astro (normally http://localhost:4321). The landing page is at `/`; the case study is at `/docs/`.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Build
 
-Static assets, like favicons, can be placed in the `public/` directory.
+```sh
+pnpm build
+pnpm preview --host 127.0.0.1
+```
 
-## 🧞 Commands
+The static site is generated in `dist/`. Starlight generates a Pagefind search index during the production build. Use the production preview to verify search; it is not available in development mode.
 
-All commands are run from the root of the project, from a terminal:
+## Edit the experience
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+- `src/pages/index.astro`: landing-page content, cover categories, FAQs, and mobile navigation.
+- `src/styles/landing.css`: marketing typography, colour, layout, and responsive styles.
+- `src/components/`: brand, SVG icons, and the explanatory quote dialog.
+- `src/content/docs/docs/`: the five case-study pages, written in Markdown/MDX.
+- `astro.config.mjs`: documentation title, theme, and case-study navigation.
 
-## 👀 Want to learn more?
+Existing guide/reference pages and user-added documentation remain available. The starter overview has moved to `/docs/` and become the case-study overview.
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Research, audience needs, and success measures in the documentation are explicitly proposed. Replace them with your own evidence and decision records as the project develops.
+
+## Prototype boundaries
+
+The quote buttons open an explanatory dialog. The site collects no personal details, sends no analytics events, calculates no premiums, and does not issue insurance. Hearthline and its cover descriptions are illustrative.
+
+## Assets
+
+Images are stored locally and optimised by Astro:
+
+- Exterior: https://www.pexels.com/photo/1396122/
+- Interior: https://www.pexels.com/photo/1571460/
+- Photography licence: https://www.pexels.com/license/
+
+DM Sans is hosted locally. Its SIL Open Font License is included in `public/fonts/OFL.txt`. The brand mark and interface icons are project-owned SVG components.
+
+## Validation
+
+Run `pnpm build`, then review the page on mobile and desktop. Check all quote buttons, Escape and close-button dismissal, modal focus return, mobile navigation, keyboard-operated FAQs, documentation links, and production documentation search. Check reduced-motion behaviour and horizontal overflow at narrow widths.

@@ -47,8 +47,8 @@ import Icon from './Icon.astro';
   .icon-button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; color: var(--navy); background: var(--mist); cursor: pointer; }
   .dialog-symbol { display: inline-grid; place-items: center; background: var(--sage); color: var(--teal); width: 72px; height: 72px; border-radius: 50%; margin-bottom: 28px; }
   h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(29px, 5vw, 39px); line-height: 1.2; letter-spacing: -1.2px; margin: 17px 0 20px; }
-  p:not(.eyebrow) { font-size: 15px; color: var(--muted); line-height: 1.8; margin: 0 0 16px; }
-  .button { margin-top: 12px; width: 100%; justify-content: center; }
-  .dialog-back { background: none; color: var(--navy); padding: 15px; font-size: 13px; border: 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+  p:not(.eyebrow) { font-size: 1rem; color: var(--muted); line-height: 1.65; margin: 0 0 16px; }
+  .button { margin-top: 12px; width: 100%; justify-content: center; gap: 12px; padding-inline: 16px; }
+  .dialog-back { background: none; color: var(--navy); padding: 15px; font-size: .875rem; line-height: 1.5; border: 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
   @media (max-width: 480px) { .quote-dialog-content { padding: 55px 24px 24px; } }
 </style>

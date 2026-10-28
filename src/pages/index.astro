@@ -146,13 +146,14 @@ const faqs = [
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
   const navigation = document.querySelector<HTMLElement>('#main-navigation');
   if (header && toggle && navigation) {
+    const compactNavigation = window.matchMedia('(max-width: 1100px)');
     header.dataset.enhanced = '';
     toggle.hidden = false;
     const setMenu = (open: boolean) => {
       header.toggleAttribute('data-menu-open', open);
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      navigation.inert = !open && window.matchMedia('(max-width: 800px)').matches;
+      navigation.inert = !open && compactNavigation.matches;
     };
     toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
     navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
@@ -166,7 +167,7 @@ const faqs = [
         toggle.focus();
       }
     });
-    window.matchMedia('(max-width: 800px)').addEventListener('change', () => setMenu(false));
+    compactNavigation.addEventListener('change', () => setMenu(false));
     setMenu(false);
   }
 </script>
